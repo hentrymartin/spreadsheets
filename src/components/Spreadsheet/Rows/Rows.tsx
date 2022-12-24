@@ -111,15 +111,15 @@ export const Rows: FC<RowsProps> = ({ loading, onLoading }) => {
 
   const onSpreadsheetUpdated = (data: any, shouldSaveData: boolean) => {
     setSpreadsheet(data);
-    // If there is already a save request in progress then cancel that and
-    // create a new save request
-    if (controller) {
-      onLoading(false);
-      controller.abort();
-    }
 
     // Trigger the API call only when the data is changed
     if (shouldSaveData) {
+      // If there is already a save request in progress then cancel that and
+      // create a new save request
+      if (controller) {
+        onLoading(false);
+        controller.abort();
+      }
       saveData(data);
     }
   };

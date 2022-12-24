@@ -102,12 +102,15 @@ export const Cell: FC<CellProps> = ({
         [`${toAlphabet(columnNumber + 1)}${rowNumber}`]: evaluated,
       };
 
-      onBlur(data, evaluated !== cellData);
+      const shouldSaveData = evaluated !== cellData;
+      onBlur(data, shouldSaveData);
 
-      if (editState === 0) {
-        setEditState(1);
-      } else if (editState >= 1) {
-        setEditState(2);
+      if (shouldSaveData) {
+        if (editState === 0) {
+          setEditState(1);
+        } else if (editState >= 1) {
+          setEditState(2);
+        }
       }
     } catch (e) {
       setError(true);
