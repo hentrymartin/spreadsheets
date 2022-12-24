@@ -18,3 +18,14 @@ The following screenshot explains the different UI states supported by the appli
 
 The Application supports retry mechanism for the `/save` call, if the backend fails the it would try for atleast 10 times(this is configured in the constants file).
 
+## Example expressions supported
+
+- `=1 + A0`
+- `=1 + A000` -> Will internally convert this to `1 + A0`
+- `=1 + A0001` -> Will internally convert this to `1 + A1`
+- `=(A0 + (A0 * (B0/10) + 1))`
+- `=1 + 2 * (42.42 / 1)`
+
+The above expressions with the value reference would be considered valid if the value is present in the referred cell.
+
+Expression which are not started with the `=` would be considered invalid and an error state is shown.
