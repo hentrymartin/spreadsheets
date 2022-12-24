@@ -16,7 +16,7 @@ The following screenshot explains the different UI states supported by the appli
 
 ![Different States](./images/Different_States.png?raw=true "Different States")
 
-The Application supports retry mechanism for the `/save` call, if the backend fails the it would try for atleast 10 times(this is configured in the constants file).
+The Application supports retry mechanism for the `/save` call, if the backend call failed then it would try for atleast 10 times(this is configured in the constants file).
 
 ## Example expressions supported
 
